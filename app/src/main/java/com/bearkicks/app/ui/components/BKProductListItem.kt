@@ -23,6 +23,8 @@ fun BKProductListItem(
     shoe: ShoeModel,
     onClick: (ShoeModel) -> Unit,
     onLikeClick: (ShoeModel) -> Unit,
+    isLoggedIn: Boolean = true,
+    onRequireLogin: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     val borderColor = MaterialTheme.colorScheme.primary
@@ -77,7 +79,7 @@ fun BKProductListItem(
                     .align(Alignment.TopEnd)
                     .padding(8.dp)
             ) {
-                IconButton(onClick = { onLikeClick(shoe) }, modifier = Modifier.size(32.dp)) {
+                IconButton(onClick = { if (!isLoggedIn) onRequireLogin() else onLikeClick(shoe) }, modifier = Modifier.size(32.dp)) {
                     Icon(
                         imageVector = if (shoe.isLiked) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,
                         contentDescription = "Favorito",

@@ -16,6 +16,8 @@ import androidx.compose.ui.unit.dp
 import com.bearkicks.app.features.home.domain.model.ShoeModel
 import com.bearkicks.app.ui.components.BKProductListItem
 import com.bearkicks.app.ui.components.BKTextField
+import com.bearkicks.app.features.auth.domain.usecase.ObserveAuthStateUseCase
+import org.koin.compose.koinInject
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -24,6 +26,8 @@ fun ShopScreen(
 ) {
     val vm: ShopViewModel = koinViewModel()
     val ui by vm.state.collectAsState()
+    val observeAuth: ObserveAuthStateUseCase = koinInject()
+    val user by observeAuth().collectAsState(initial = null)
     LazyColumn(
         contentPadding = PaddingValues(horizontal = 12.dp, vertical = 8.dp)
     ) {
@@ -52,6 +56,8 @@ fun ShopScreen(
                     shoe = shoe,
                     onClick = onProductClick,
                     onLikeClick = { vm.onToggleLike(it) },
+                    isLoggedIn = user != null,
+                    onRequireLogin = { /* Navigate to login from parent via Nav? show a hint here */ },
                     modifier = Modifier.padding(vertical = 4.dp)
                 )
             }

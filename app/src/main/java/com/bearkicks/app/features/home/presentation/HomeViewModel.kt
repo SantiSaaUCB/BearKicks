@@ -15,6 +15,7 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import com.google.firebase.auth.FirebaseAuth
 
 sealed class HomeUiState {
     data object Loading : HomeUiState()
@@ -50,6 +51,8 @@ class HomeViewModel(
     }
 
     fun onToggleLike(item: ShoeModel) {
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user == null) return
         viewModelScope.launch(Dispatchers.IO) { toggleFavorite(item) }
     }
 }

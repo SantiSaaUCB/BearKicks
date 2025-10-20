@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import com.google.firebase.auth.FirebaseAuth
 
 data class ShopUiState(
     val query: String = "",
@@ -43,6 +44,7 @@ class ShopViewModel(
     fun onQueryChange(q: String) { _query.value = q }
 
     fun onToggleLike(item: ShoeModel) {
+        if (FirebaseAuth.getInstance().currentUser == null) return
         viewModelScope.launch(Dispatchers.IO) { toggleFavorite(item) }
     }
 }

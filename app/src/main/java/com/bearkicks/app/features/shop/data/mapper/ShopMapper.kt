@@ -12,5 +12,6 @@ fun ShoeDto.toDomain(): ShoeModel = ShoeModel(
     imageUrl = imageUrl,
     isFeatured = isFeatured,
     isNew = isNew,
-    isLiked = liked
+    isLiked = liked,
+    sizes = sizes
 )

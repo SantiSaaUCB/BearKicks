@@ -1,0 +1,470 @@
+{
+  "favorites": {
+    "adidas_forum_low_white_blue": {
+      "brand": "Adidas",
+      "discountPrice": 760,
+      "id": "adidas_forum_low_white_blue",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/baskets-air-jordan-1-retro-high-og-white-cement-pour-homme-et-femme-disponible-sur-kikikickz-218875_800x_f9eb1f57-1d06-4413-96a5-c86e5eabe2eb.webp?v=1698017622",
+      "isLiked": true,
+      "name": "Adidas Forum Low White/Blue",
+      "price": 860,
+      "savedAt": 1760945910922
+    },
+    "air_jordan_11_concord": {
+      "brand": "Nike",
+      "id": "air_jordan_11_concord",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/image_16_48d03933-2947-4125-8bb9-991d7f18de49.jpg?v=1714770098",
+      "isLiked": true,
+      "name": "Air Jordan 11 'Concord'",
+      "price": 1490,
+      "savedAt": 1760945862941
+    }
+  },
+  "shoes": {
+    "adidas_forum_low_white_blue": {
+      "brand": "Adidas",
+      "description": "Look 80s con correa en el empeine.",
+      "discountPrice": 760,
+      "id": "adidas_forum_low_white_blue",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/baskets-air-jordan-1-retro-high-og-white-cement-pour-homme-et-femme-disponible-sur-kikikickz-218875_800x_f9eb1f57-1d06-4413-96a5-c86e5eabe2eb.webp?v=1698017622",
+      "isFeatured": true,
+      "isNew": true,
+      "name": "Adidas Forum Low White/Blue",
+      "price": 860,
+      "sizes": [38, 39, 40, 41, 42, 43]
+    },
+    "adidas_nmd_r1_black": {
+      "brand": "Adidas",
+      "description": "Boost con bloques EVA y upper knit.",
+      "discountPrice": 880,
+      "id": "adidas_nmd_r1_black",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/image_40_ac7d826b-3faa-47f8-a826-58cb3c013782.jpg?v=1736173697",
+      "isFeatured": false,
+      "isNew": false,
+      "name": "Adidas NMD_R1 Black",
+      "price": 980,
+      "sizes": [38, 39, 40, 41, 42, 43]
+    },
+    "air_force_1_07_white": {
+      "brand": "Nike",
+      "description": "Cuero blanco con suela Air encapsulada.",
+      "discountPrice": 720,
+      "id": "air_force_1_07_white",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/image_40_ac7d826b-3faa-47f8-a826-58cb3c013782.jpg?v=1736173697",
+      "isFeatured": false,
+      "isNew": false,
+      "name": "Air Force 1 '07 White",
+      "price": 790,
+      "sizes": [38, 39, 40, 41, 42, 43, 44]
+    },
+    "air_jordan_11_concord": {
+      "brand": "Nike",
+      "description": "Upper con charol y mediasuela Phylon.",
+      "id": "air_jordan_11_concord",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/image_16_48d03933-2947-4125-8bb9-991d7f18de49.jpg?v=1714770098",
+      "isFeatured": false,
+      "isNew": true,
+      "name": "Air Jordan 11 'Concord'",
+      "price": 1490,
+      "sizes": [39, 40, 41, 42, 43, 44]
+    },
+    "air_jordan_1_chicago": {
+      "brand": "Nike",
+      "description": "Clásico de 1985 con cuero premium y esquema Chicago.",
+      "discountPrice": 1290,
+      "id": "air_jordan_1_chicago",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/image-2025-03-05T125353.841.jpg?v=1741175774",
+      "isFeatured": true,
+      "isNew": false,
+      "name": "Air Jordan 1 Retro High OG 'Chicago'",
+      "price": 1490,
+      "sizes": [38, 39, 40, 41, 42, 43, 44]
+    },
+    "air_jordan_3_white_cement": {
+      "brand": "Nike",
+      "description": "Elephant print clásico y amortiguación Air.",
+      "discountPrice": 1180,
+      "id": "air_jordan_3_white_cement",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/baskets-air-jordan-1-retro-high-og-white-cement-pour-homme-et-femme-disponible-sur-kikikickz-218875_800x_f9eb1f57-1d06-4413-96a5-c86e5eabe2eb.webp?v=1698017622",
+      "isFeatured": true,
+      "isNew": false,
+      "name": "Air Jordan 3 'White Cement'",
+      "price": 1350,
+      "sizes": [38, 39, 40, 41, 42, 43]
+    },
+    "air_jordan_4_bred": {
+      "brand": "Nike",
+      "description": "Icono con malla lateral y unidad Air visible.",
+      "discountPrice": 1190,
+      "id": "air_jordan_4_bred",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/Air-Jordan-4-Retro-Bred-Reimagined-2.png?v=1707865618",
+      "isFeatured": true,
+      "isNew": false,
+      "name": "Air Jordan 4 'Bred'",
+      "price": 1390,
+      "sizes": [39, 40, 41, 42, 43, 44]
+    },
+    "air_max_90_infrared": {
+      "brand": "Nike",
+      "description": "Air visible y combinación OG Infrared.",
+      "discountPrice": 860,
+      "id": "air_max_90_infrared",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/baskets-air-max-plus-white-mica-green-pour-homme-et-femme-disponible-sur-kikikickz-519981_800x_85feac15-a13a-4766-806d-209705854e8d.webp?v=1698017937",
+      "isFeatured": true,
+      "isNew": false,
+      "name": "Air Max 90 'Infrared'",
+      "price": 980,
+      "sizes": [39, 40, 41, 42, 43]
+    },
+    "air_max_97_silver_bullet": {
+      "brand": "Nike",
+      "description": "Ondas reflectantes y cámara Air de largo completo.",
+      "discountPrice": 990,
+      "id": "air_max_97_silver_bullet",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/image_10_b892cab6-0249-4279-b841-cc450631e0d3.jpg?v=1720788353",
+      "isFeatured": false,
+      "isNew": true,
+      "name": "Air Max 97 'Silver Bullet'",
+      "price": 1190,
+      "sizes": [39, 40, 41, 42, 43, 44]
+    },
+    "asics_gel_kayano_30": {
+      "brand": "ASICS",
+      "description": "Estabilidad 4D Guidance con GEL y FF Blast+.",
+      "discountPrice": 1080,
+      "id": "asics_gel_kayano_30",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/image_30_e667d7ec-8cdb-4644-abed-2cdac1b86aed.jpg?v=1738105529",
+      "isFeatured": false,
+      "isNew": true,
+      "name": "ASICS GEL-Kayano 30",
+      "price": 1280,
+      "sizes": [39, 40, 41, 42, 43]
+    },
+    "asics_gel_nimbus_26": {
+      "brand": "ASICS",
+      "description": "Amortiguación máxima para largas distancias.",
+      "discountPrice": 1090,
+      "id": "asics_gel_nimbus_26",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/image_28_9.jpg?v=1720743027",
+      "isFeatured": false,
+      "isNew": false,
+      "name": "ASICS GEL-Nimbus 26",
+      "price": 1250,
+      "sizes": [38, 39, 40, 41, 42, 43]
+    },
+    "blazer_mid_77_vintage": {
+      "brand": "Nike",
+      "description": "Estética retro con Swoosh grande y suela vulcanizada.",
+      "discountPrice": 740,
+      "id": "blazer_mid_77_vintage",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/Air-Jordan-1-Mid-Blue-Mint-2_1.png?v=1703372034",
+      "isFeatured": false,
+      "isNew": false,
+      "name": "Nike Blazer Mid '77 Vintage",
+      "price": 820,
+      "sizes": [38, 39, 40, 41, 42, 43, 44]
+    },
+    "converse_all_star_low_white": {
+      "brand": "Converse",
+      "description": "Clásico low-top con suela vulcanizada.",
+      "discountPrice": 540,
+      "id": "converse_all_star_low_white",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/adidas-campus-00s-charcoal-black-3.png?v=1703454728",
+      "isFeatured": false,
+      "isNew": true,
+      "name": "Chuck Taylor All Star Low White",
+      "price": 590,
+      "sizes": [36, 37, 38, 39, 40, 41, 42]
+    },
+    "converse_chuck_70_hi_black": {
+      "brand": "Converse",
+      "description": "Lona premium y banda de goma más alta.",
+      "id": "converse_chuck_70_hi_black",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/image_19_9ee297c5-ace3-4d19-9fb4-bf818aa1e596.jpg?v=1731885953",
+      "isFeatured": false,
+      "isNew": false,
+      "name": "Converse Chuck 70 Hi Black",
+      "price": 710,
+      "sizes": [36, 37, 38, 39, 40, 41, 42, 43]
+    },
+    "dunk_low_panda": {
+      "brand": "Nike",
+      "description": "Bloqueo bicolor popular con base de cuero.",
+      "discountPrice": 820,
+      "id": "dunk_low_panda",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/baskets-dunk-low-panda-pour-homme-et-femme-disponible-sur-kikikickz-448428_800x_5d3edac3-b9e1-4873-9475-61bb38194f03.webp?v=1697902593",
+      "isFeatured": true,
+      "isNew": false,
+      "name": "Nike Dunk Low 'Black/White' (Panda)",
+      "price": 930,
+      "sizes": [38, 39, 40, 41, 42, 43]
+    },
+    "gazelle_indoor_green": {
+      "brand": "Adidas",
+      "description": "Perfil bajo con suela translúcida y ante suave.",
+      "discountPrice": 760,
+      "id": "gazelle_indoor_green",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/baskets-550-white-green-pour-homme-et-femme-disponible-sur-kikikickz-137990_800x_f277aea6-1fa6-48bf-9d78-a2c466c3a41b.webp?v=1697849719",
+      "isFeatured": false,
+      "isNew": true,
+      "name": "Adidas Gazelle Indoor",
+      "price": 860,
+      "sizes": [37, 38, 39, 40, 41, 42, 43]
+    },
+    "hoka_clifton_9": {
+      "brand": "Hoka",
+      "description": "Max-cushion ligero para entrenamiento diario.",
+      "discountPrice": 1020,
+      "id": "hoka_clifton_9",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/image-2025-03-05T125353.841.jpg?v=1741175774",
+      "isFeatured": false,
+      "isNew": true,
+      "name": "Hoka Clifton 9",
+      "price": 1150,
+      "sizes": [39, 40, 41, 42, 43]
+    },
+    "new_balance_550_white_green": {
+      "brand": "New Balance",
+      "description": "Retro basket con base de cuero y estabilidad.",
+      "discountPrice": 840,
+      "id": "new_balance_550_white_green",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/image_27_c252a650-f359-462a-b6af-8a73843d2747.jpg?v=1733582717",
+      "isFeatured": true,
+      "isNew": false,
+      "name": "New Balance 550 White/Green",
+      "price": 940,
+      "sizes": [39, 40, 41, 42, 43, 44]
+    },
+    "new_balance_574_core": {
+      "brand": "New Balance",
+      "description": "Casual versátil con ENCAP y upper mixto.",
+      "discountPrice": 710,
+      "id": "new_balance_574_core",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/ASICS-Gel-Kayano-14-Dried-Leaf-Green-2.png?v=1759759092",
+      "isFeatured": false,
+      "isNew": true,
+      "name": "New Balance 574 Core",
+      "price": 780,
+      "sizes": [38, 39, 40, 41, 42, 43, 44]
+    },
+    "new_balance_990v5_grey": {
+      "brand": "New Balance",
+      "description": "Suede y malla Made in USA con ENCAP.",
+      "discountPrice": 1150,
+      "id": "new_balance_990v5_grey",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/new-balance-550-white-blue-groove-2_12e5aa15-1319-412f-b9bd-9400e5dfa2e1.png?v=1731458573",
+      "isFeatured": false,
+      "isNew": false,
+      "name": "New Balance 990v5 Grey",
+      "price": 1290,
+      "sizes": [39, 40, 41, 42, 43]
+    },
+    "nike_air_huarache_triple_black": {
+      "brand": "Nike",
+      "description": "Neopreno elástico con jaula trasera característica.",
+      "discountPrice": 780,
+      "id": "nike_air_huarache_triple_black",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/baskets-dunk-low-panda-pour-homme-et-femme-disponible-sur-kikikickz-448428_800x_5d3edac3-b9e1-4873-9475-61bb38194f03.webp?v=1697902593",
+      "isFeatured": false,
+      "isNew": true,
+      "name": "Nike Air Huarache Triple Black",
+      "price": 880,
+      "sizes": [38, 39, 40, 41, 42, 43]
+    },
+    "nike_cortez_white_red": {
+      "brand": "Nike",
+      "description": "Base de cuero y mediasuela de EVA clásica.",
+      "discountPrice": 590,
+      "id": "nike_cortez_white_red",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/image_16_48d03933-2947-4125-8bb9-991d7f18de49.jpg?v=1714770098",
+      "isFeatured": false,
+      "isNew": false,
+      "name": "Nike Cortez White/Varsity Red",
+      "price": 650,
+      "sizes": [37, 38, 39, 40, 41, 42, 43]
+    },
+    "nike_sbm_janosi_black": {
+      "brand": "Nike",
+      "description": "Skate clásico con plantilla Zoom Air.",
+      "discountPrice": 680,
+      "id": "nike_sbm_janosi_black",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/Air-Jordan-4-Retro-Bred-Reimagined-2.png?v=1707865618",
+      "isFeatured": false,
+      "isNew": false,
+      "name": "Nike SB Zoom Janoski Black/White",
+      "price": 740,
+      "sizes": [38, 39, 40, 41, 42, 43]
+    },
+    "pegasus_41": {
+      "brand": "Nike",
+      "description": "Entrenamiento diario con espuma React y Air Zoom.",
+      "discountPrice": 790,
+      "id": "pegasus_41",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/image_26_ba9f5261-7511-47d5-8f5d-2237c9eba5e5.jpg?v=1725378688",
+      "isFeatured": false,
+      "isNew": true,
+      "name": "Nike Pegasus 41",
+      "price": 890,
+      "sizes": [38, 39, 40, 41, 42, 43, 44]
+    },
+    "puma_rsx3_white_blue": {
+      "brand": "Puma",
+      "description": "Chunky retro con espuma RS para confort.",
+      "discountPrice": 720,
+      "id": "puma_rsx3_white_blue",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/image-2024-10-10T005901.726.jpg?v=1728514839",
+      "isFeatured": false,
+      "isNew": true,
+      "name": "Puma RS-X³",
+      "price": 820,
+      "sizes": [37, 38, 39, 40, 41, 42, 43]
+    },
+    "puma_suede_classic_black": {
+      "brand": "Puma",
+      "description": "Perfil bajo de ante con suela de goma.",
+      "discountPrice": 690,
+      "id": "puma_suede_classic_black",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/image_22_ddcebe6c-18b1-4849-9619-7fc6a965d8ab.jpg?v=1731887059",
+      "isFeatured": false,
+      "isNew": false,
+      "name": "Puma Suede Classic Black",
+      "price": 740,
+      "sizes": [37, 38, 39, 40, 41, 42, 43]
+    },
+    "react_infinity_run_4": {
+      "brand": "Nike",
+      "description": "Estabilidad y espuma React para alta kilometrada.",
+      "id": "react_infinity_run_4",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/yeezy-boost-350-v2-zebra-241756_5000x_540x_c72404cc-d516-4394-b99f-4b22eba420fb.webp?v=1697827885",
+      "isFeatured": false,
+      "isNew": true,
+      "name": "Nike React Infinity Run 4",
+      "price": 980,
+      "sizes": [38, 39, 40, 41, 42, 43]
+    },
+    "reebok_classic_leather_white": {
+      "brand": "Reebok",
+      "description": "EVA ligera y parte superior de cuero.",
+      "discountPrice": 610,
+      "id": "reebok_classic_leather_white",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/air-max-1-dark-teal-green-314994.png?v=1726012354",
+      "isFeatured": false,
+      "isNew": true,
+      "name": "Reebok Classic Leather",
+      "price": 670,
+      "sizes": [38, 39, 40, 41, 42, 43]
+    },
+    "reebok_club_c_85_white": {
+      "brand": "Reebok",
+      "description": "Cuero blanco minimalista con look tennis.",
+      "discountPrice": 620,
+      "id": "reebok_club_c_85_white",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/image_17_3071006c-8bc9-45e2-8d01-b3e3d98403d9.jpg?v=1719244753",
+      "isFeatured": false,
+      "isNew": false,
+      "name": "Reebok Club C 85 White",
+      "price": 690,
+      "sizes": [38, 39, 40, 41, 42, 43]
+    },
+    "samba_og_white_black": {
+      "brand": "Adidas",
+      "description": "Clásico de cancha con suela de goma y cuero.",
+      "discountPrice": 740,
+      "id": "samba_og_white_black",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/adidas-gazelle-indoor-blue-dawn-2.png?v=1703555723",
+      "isFeatured": true,
+      "isNew": true,
+      "name": "Adidas Samba OG",
+      "price": 820,
+      "sizes": [37, 38, 39, 40, 41, 42, 43]
+    },
+    "saucony_jazz_original_navy": {
+      "brand": "Saucony",
+      "description": "Nylon y ante con mediasuela EVA clásica.",
+      "discountPrice": 650,
+      "id": "saucony_jazz_original_navy",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/Nike-Air-Max-1-Football-Grey-2.png?v=1725757526",
+      "isFeatured": false,
+      "isNew": false,
+      "name": "Saucony Jazz Original Navy",
+      "price": 720,
+      "sizes": [38, 39, 40, 41, 42, 43]
+    },
+    "ultraboost_22_black": {
+      "brand": "Adidas",
+      "description": "Running con mediasuela Boost y upper Primeknit.",
+      "discountPrice": 980,
+      "id": "ultraboost_22_black",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/image_7_13_17_29_2.png?v=1707010452",
+      "isFeatured": true,
+      "isNew": false,
+      "name": "UltraBoost 22",
+      "price": 1150,
+      "sizes": [38, 39, 40, 41, 42, 43]
+    },
+    "vans_old_skool_black_white": {
+      "brand": "Vans",
+      "description": "Lateral Sidestripe y suela waffle.",
+      "discountPrice": 590,
+      "id": "vans_old_skool_black_white",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/adidas-campus-00s-grey-six-core-black-2.png?v=1703553092",
+      "isFeatured": true,
+      "isNew": false,
+      "name": "Vans Old Skool Black/White",
+      "price": 650,
+      "sizes": [36, 37, 38, 39, 40, 41, 42, 43]
+    },
+    "vans_sk8_hi_black_white": {
+      "brand": "Vans",
+      "description": "Caña alta con refuerzos y suela waffle.",
+      "discountPrice": 620,
+      "id": "vans_sk8_hi_black_white",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/air-jordan-1-low-dark-grey1.png?v=1704331852",
+      "isFeatured": false,
+      "isNew": true,
+      "name": "Vans Sk8-Hi Black/White",
+      "price": 690,
+      "sizes": [36, 37, 38, 39, 40, 41, 42, 43]
+    },
+    "yeezy_boost_350_v2_zebra": {
+      "brand": "Adidas",
+      "description": "Primeknit con patrón Zebra y amortiguación Boost.",
+      "id": "yeezy_boost_350_v2_zebra",
+      "imageUrl": "https://www.summersnkrs.com/cdn/shop/files/baskets-yeezy-boost-350-v2-light-pour-homme-et-femme-disponible-sur-kikikickz-599590_800x_d0c8adcc-d3e6-4226-a5d4-d854e4d2aacb.webp?v=1699234575",
+      "isFeatured": true,
+      "isNew": false,
+      "name": "Yeezy Boost 350 V2 'Zebra'",
+      "price": 1290,
+      "sizes": [39, 40, 41, 42, 43, 44]
+    }
+  },
+  "userFavorites": {
+    "hkUWsADZ2LXbNDGzjONQuzBVIz03": {
+      "adidas_forum_low_white_blue": true
+    },
+    "nr6PRtlbgWTchmvTgMl0Seue6sC2": {
+      "adidas_forum_low_white_blue": true,
+      "air_jordan_11_concord": true
+    }
+  },
+  "users": {
+    "hkUWsADZ2LXbNDGzjONQuzBVIz03": {
+      "address": "Av. America",
+      "email": "santiago.saavedra@ucb.edu.bo",
+      "firstName": "Santiago",
+      "lastName": "Saavedra",
+      "phone": "69503355",
+      "photoUrl": null
+    },
+    "nr6PRtlbgWTchmvTgMl0Seue6sC2": {
+      "address": "Av. Villarroel",
+      "email": "antonio.ontiveros@ucb.edu.bo",
+      "firstName": "Antonio",
+      "lastName": "Ontiveros",
+      "phone": "69503355",
+      "photoUrl": null
+    }
+  },
+  "userCarts": {},
+  "orders": {}
+}

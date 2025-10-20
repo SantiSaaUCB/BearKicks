@@ -16,8 +16,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.bearkicks.app.features.home.domain.model.ShoeModel
+import com.bearkicks.app.features.auth.domain.usecase.ObserveAuthStateUseCase
 import com.bearkicks.app.ui.components.BKProductCard
 import org.koin.androidx.compose.koinViewModel
+import org.koin.compose.koinInject
+import androidx.compose.runtime.getValue
 
 @Composable
 fun WishListScreen(
@@ -25,6 +28,8 @@ fun WishListScreen(
 ) {
     val vm: WishListViewModel = koinViewModel()
     val list = vm.favorites.collectAsState(initial = emptyList()).value
+    val observeAuth: ObserveAuthStateUseCase = koinInject()
+    val user by observeAuth().collectAsState(initial = null)
 
     if (list.isEmpty()) {
         Box(
@@ -51,7 +56,8 @@ fun WishListScreen(
             BKProductCard(
                 shoe = shoe.copy(isLiked = true),
                 onClick = onProductClick,
-                onLikeClick = { vm.onToggle(it) }
+                onLikeClick = { vm.onToggle(it) },
+                isLoggedIn = user != null
             )
         }
     }

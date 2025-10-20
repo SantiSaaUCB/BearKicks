@@ -5,12 +5,15 @@ import com.google.firebase.database.DatabaseReference
 
 // Actualiza like remoto en /shoes/{id}/isLiked y opcionalmente mantiene /favorites/{id}
 class FavoritesRemoteDataSource(
-    private val dbRoot: DatabaseReference
+    private val dbRoot: DatabaseReference,
+    private val userIdProvider: () -> String
 ) {
     private fun favsRef(): DatabaseReference = dbRoot.child("favorites")
     private fun shoesRef(): DatabaseReference = dbRoot.child("shoes")
+    private fun userFavsRef(uid: String): DatabaseReference = dbRoot.child("userFavorites").child(uid)
 
     suspend fun setFavorite(shoe: ShoeModel, favored: Boolean) {
+        val uid = userIdProvider()
         // 1) Reflejar like en el nodo principal de zapatos
         val shoeNode = shoesRef().child(shoe.id)
         shoeNode.child("isLiked").setValue(favored)
@@ -30,8 +33,11 @@ class FavoritesRemoteDataSource(
                 "savedAt" to System.currentTimeMillis()
             )
             favNode.setValue(payload)
+            // 3) Por usuario
+            userFavsRef(uid).child(shoe.id).setValue(true)
         } else {
             favNode.removeValue()
+            userFavsRef(uid).child(shoe.id).removeValue()
         }
     }
 }

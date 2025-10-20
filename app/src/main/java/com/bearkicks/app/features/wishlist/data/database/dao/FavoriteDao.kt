@@ -8,15 +8,15 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface FavoriteDao {
-    @Query("SELECT * FROM favorites ORDER BY name")
-    fun observeAll(): Flow<List<FavoriteEntity>>
+    @Query("SELECT * FROM favorites WHERE userId = :userId ORDER BY name")
+    fun observeAll(userId: String): Flow<List<FavoriteEntity>>
 
-    @Query("SELECT EXISTS(SELECT 1 FROM favorites WHERE id = :id)")
-    fun observeIsFavorite(id: String): Flow<Boolean>
+    @Query("SELECT EXISTS(SELECT 1 FROM favorites WHERE id = :id AND userId = :userId)")
+    fun observeIsFavorite(userId: String, id: String): Flow<Boolean>
 
     @Upsert
     suspend fun upsert(entity: FavoriteEntity)
 
-    @Query("DELETE FROM favorites WHERE id = :id")
-    suspend fun delete(id: String)
+    @Query("DELETE FROM favorites WHERE id = :id AND userId = :userId")
+    suspend fun delete(userId: String, id: String)
 }

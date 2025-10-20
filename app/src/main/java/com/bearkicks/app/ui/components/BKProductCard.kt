@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
@@ -22,6 +23,8 @@ fun BKProductCard(
     shoe: ShoeModel,
     onLikeClick: (ShoeModel) -> Unit,
     onClick: (ShoeModel) -> Unit,
+    isLoggedIn: Boolean = true,
+    onRequireLogin: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     Card(
@@ -36,14 +39,14 @@ fun BKProductCard(
                 AsyncImage(
                     model = shoe.imageUrl,
                     contentDescription = shoe.name,
+                    contentScale = ContentScale.Crop,
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(160.dp)
-                        .background(MaterialTheme.colorScheme.surfaceVariant)
                         .clip(RoundedCornerShape(topStart = 14.dp, topEnd = 14.dp))
                 )
                 IconButton(
-                    onClick = { onLikeClick(shoe) },
+                    onClick = { if (!isLoggedIn) onRequireLogin() else onLikeClick(shoe) },
                     modifier = Modifier
                         .align(Alignment.TopEnd)
                         .padding(8.dp)

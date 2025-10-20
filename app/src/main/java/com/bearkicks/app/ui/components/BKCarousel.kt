@@ -15,6 +15,8 @@ fun BKCarousel(
     items: List<ShoeModel>,
     onLikeClick: (ShoeModel) -> Unit,
     onProductClick: (ShoeModel) -> Unit,
+    isLoggedIn: Boolean = true,
+    onRequireLogin: () -> Unit = {},
     onSeeAll: (() -> Unit)? = null,
     cardWidth: Dp = 260.dp
 ) {
@@ -32,6 +34,8 @@ fun BKCarousel(
             BKProductCard(
                 shoe = shoe,
                 onLikeClick = onLikeClick,
+                isLoggedIn = isLoggedIn,
+                onRequireLogin = onRequireLogin,
                 onClick = onProductClick,
                 modifier = Modifier.width(cardWidth)
             )

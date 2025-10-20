@@ -20,6 +20,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.bearkicks.app.features.home.domain.model.ShoeModel
 import com.bearkicks.app.ui.components.BKCarousel
+import com.bearkicks.app.features.auth.domain.usecase.ObserveAuthStateUseCase
+import org.koin.compose.koinInject
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -28,6 +30,8 @@ fun HomeScreen(
 ) {
     val vm: HomeViewModel = koinViewModel()
     val ui by vm.state.collectAsState()
+    val observeAuth: ObserveAuthStateUseCase = koinInject()
+    val user by observeAuth().collectAsState(initial = null)
 
     val isLoading = ui is HomeUiState.Loading
     val error = (ui as? HomeUiState.Error)?.message
@@ -63,6 +67,8 @@ fun HomeScreen(
                     title = "Ofertas",
                     items = offers,
                     onLikeClick = { vm.onToggleLike(it) },
+                    isLoggedIn = user != null,
+                    onRequireLogin = { /* handled by bottom bar navigation; could open login via Nav lifts later */ },
                     onProductClick = onProductClick
                 )
                 Spacer(Modifier.height(8.dp))
@@ -76,6 +82,8 @@ fun HomeScreen(
                     title = "Novedades",
                     items = news,
                     onLikeClick = { vm.onToggleLike(it) },
+                    isLoggedIn = user != null,
+                    onRequireLogin = { },
                     onProductClick = onProductClick
                 )
                 Spacer(Modifier.height(8.dp))

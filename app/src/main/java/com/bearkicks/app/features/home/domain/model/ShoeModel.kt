@@ -9,5 +9,6 @@ data class ShoeModel(
     val imageUrl: String?,
     val isFeatured: Boolean,
     val isNew: Boolean,
-    val isLiked: Boolean = false
+    val isLiked: Boolean = false,
+    val sizes: List<Int>? = null
 )

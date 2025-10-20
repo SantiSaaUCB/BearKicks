@@ -58,9 +58,10 @@ dependencies {
 
     // DI: Koin
     implementation(libs.koin.android)
-    runtimeOnly(libs.koin.androidx.navigation)
-    runtimeOnly(libs.koin.androidx.compose)
+    implementation(libs.koin.androidx.navigation)
+    implementation(libs.koin.androidx.compose)
     implementation(libs.koin.androidx.compose.navigation)
+    implementation(libs.koin.compose)
 
     // Images: Coil
     implementation(libs.coil.compose)

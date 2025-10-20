@@ -75,6 +75,7 @@ koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndr
 koin-androidx-navigation = { module = "io.insert-koin:koin-androidx-navigation", version.ref = "koinAndroidxNavigation" }
 koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinAndroidxCompose" }
 koin-androidx-compose-navigation = { module = "io.insert-koin:koin-androidx-compose-navigation", version.ref = "koinAndroidxComposeNavigation" }
+koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koinAndroid" }
 
 # Red / JSON
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
