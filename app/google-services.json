@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "267450364423",
+    "firebase_url": "https://bearkicks-210304-default-rtdb.firebaseio.com",
+    "project_id": "bearkicks-210304",
+    "storage_bucket": "bearkicks-210304.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267450364423:android:c1986c655b1322faf4b0a2",
+        "android_client_info": {
+          "package_name": "com.bearkicks.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyActXBD5eJjrhHLlqWqUH3lJ-oJ-YKTeuw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
