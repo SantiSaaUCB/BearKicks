@@ -106,7 +106,6 @@ private fun ShoeDetailBody(
             Text(text = "Bs ${"%.2f".format(item.price)}", style = MaterialTheme.typography.titleMedium)
             item.discountPrice?.let { Text(text = "Oferta: Bs ${"%.2f".format(it)}", style = MaterialTheme.typography.bodyMedium) }
         }
-        // Sizes
         item.sizes?.takeIf { it.isNotEmpty() }?.let { sizes ->
             Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 Text("Talla", style = MaterialTheme.typography.titleSmall)

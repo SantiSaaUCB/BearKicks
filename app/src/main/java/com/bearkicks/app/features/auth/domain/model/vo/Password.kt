@@ -3,7 +3,6 @@ package com.bearkicks.app.features.auth.domain.model.vo
 @JvmInline
 value class Password private constructor(val value: String) {
     companion object {
-        // Min 8 chars: at least letter and digit. Symbols allowed.
         private val LETTER = Regex("[A-Za-z]")
         private val DIGIT = Regex("[0-9]")
         fun create(input: String): Result<Password> {

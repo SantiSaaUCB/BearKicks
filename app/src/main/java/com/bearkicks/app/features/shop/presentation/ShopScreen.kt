@@ -24,40 +24,40 @@ import org.koin.androidx.compose.koinViewModel
 fun ShopScreen(
     onProductClick: (ShoeModel) -> Unit
 ) {
-    val vm: ShopViewModel = koinViewModel()
-    val ui by vm.state.collectAsState()
+    val viewModel: ShopViewModel = koinViewModel()
+    val uiState by viewModel.state.collectAsState()
     val observeAuth: ObserveAuthStateUseCase = koinInject()
-    val user by observeAuth().collectAsState(initial = null)
+    val currentUser by observeAuth().collectAsState(initial = null)
     LazyColumn(
         contentPadding = PaddingValues(horizontal = 12.dp, vertical = 8.dp)
     ) {
         item {
             BKTextField(
-                value = ui.query,
-                onValueChange = vm::onQueryChange,
+                value = uiState.query,
+                onValueChange = viewModel::onQueryChange,
                 label = "Buscar",
                 placeholder = "Nombre o marca",
                 modifier = Modifier.padding(horizontal = 4.dp, vertical = 6.dp)
             )
             Spacer(Modifier.height(4.dp))
         }
-        if (ui.filtered.isEmpty()) {
+        if (uiState.filtered.isEmpty()) {
             item {
                 Text(
-                    text = if (ui.query.isBlank()) "Sin productos" else "Sin resultados",
+                    text = if (uiState.query.isBlank()) "Sin productos" else "Sin resultados",
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.padding(12.dp)
                 )
             }
         } else {
-            items(ui.filtered, key = { it.id }) { shoe ->
+            items(uiState.filtered, key = { it.id }) { shoe ->
                 BKProductListItem(
                     shoe = shoe,
                     onClick = onProductClick,
-                    onLikeClick = { vm.onToggleLike(it) },
-                    isLoggedIn = user != null,
-                    onRequireLogin = { /* Navigate to login from parent via Nav? show a hint here */ },
+                    onLikeClick = { viewModel.onToggleLike(it) },
+                    isLoggedIn = currentUser != null,
+                    onRequireLogin = { },
                     modifier = Modifier.padding(vertical = 4.dp)
                 )
             }

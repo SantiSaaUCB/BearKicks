@@ -27,7 +27,6 @@ class ShoeDetailViewModel(
     private val selectedSize = MutableStateFlow<Int?>(null)
     val selectedSizeFlow: StateFlow<Int?> = selectedSize.asStateFlow()
 
-    // If size is selected, observe the specific size in cart; else observe any variant of this shoe
     val isInCart: Flow<Boolean> = selectedSize
         .flatMapLatest { size ->
             if (size != null) observeInCart(id, size) else observeInCart(id)
@@ -44,28 +43,26 @@ class ShoeDetailViewModel(
     fun onSelectSize(size: Int) { selectedSize.value = size }
 
     fun onToggleLike() {
-        val cur = _item.value ?: return
-        viewModelScope.launch(Dispatchers.IO) { toggleFavorite(cur) }
+        val currentShoe = _item.value ?: return
+        viewModelScope.launch(Dispatchers.IO) { toggleFavorite(currentShoe) }
     }
 
     fun onAddToCart(qty: Int = 1, size: Int? = null, onDone: (() -> Unit)? = null) {
-        val cur = _item.value ?: return
+        val currentShoe = _item.value ?: return
         viewModelScope.launch(Dispatchers.IO) {
             val effectiveSize = size ?: selectedSize.value
-            // If the product declares sizes, require one to be selected
-            if (!cur.sizes.isNullOrEmpty() && effectiveSize == null) return@launch
-            val item = CartItem(
+            if (!currentShoe.sizes.isNullOrEmpty() && effectiveSize == null) return@launch
+            val cartItem = CartItem(
                 id = "",
-                shoeId = cur.id,
-                name = cur.name,
-                brand = cur.brand,
-                price = cur.discountPrice ?: cur.price,
-                imageUrl = cur.imageUrl,
+                shoeId = currentShoe.id,
+                name = currentShoe.name,
+                brand = currentShoe.brand,
+                price = currentShoe.discountPrice ?: currentShoe.price,
+                imageUrl = currentShoe.imageUrl,
                 size = effectiveSize,
                 qty = qty
             )
-            addToCart(item)
-            // Ensure navigation callbacks are executed on main thread
+            addToCart(cartItem)
             if (onDone != null) withContext(Dispatchers.Main) { onDone() }
         }
     }

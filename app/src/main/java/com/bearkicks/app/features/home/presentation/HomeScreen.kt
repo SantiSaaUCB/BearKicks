@@ -28,15 +28,15 @@ import org.koin.androidx.compose.koinViewModel
 fun HomeScreen(
     onProductClick: (ShoeModel) -> Unit = {}
 ) {
-    val vm: HomeViewModel = koinViewModel()
-    val ui by vm.state.collectAsState()
+    val viewModel: HomeViewModel = koinViewModel()
+    val uiState by viewModel.state.collectAsState()
     val observeAuth: ObserveAuthStateUseCase = koinInject()
-    val user by observeAuth().collectAsState(initial = null)
+    val currentUser by observeAuth().collectAsState(initial = null)
 
-    val isLoading = ui is HomeUiState.Loading
-    val error = (ui as? HomeUiState.Error)?.message
-    val offers = (ui as? HomeUiState.Success)?.offers ?: emptyList()
-    val news = (ui as? HomeUiState.Success)?.news ?: emptyList()
+    val isLoading = uiState is HomeUiState.Loading
+    val errorMessage = (uiState as? HomeUiState.Error)?.message
+    val offers = (uiState as? HomeUiState.Success)?.offers ?: emptyList()
+    val news = (uiState as? HomeUiState.Success)?.news ?: emptyList()
 
     LazyColumn(
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
@@ -52,9 +52,9 @@ fun HomeScreen(
                         )
                     }
                 }
-                error != null -> {
+                errorMessage != null -> {
                     Text(
-                        text = error,
+                        text = errorMessage,
                         color = MaterialTheme.colorScheme.error,
                         style = MaterialTheme.typography.bodyMedium
                     )
@@ -66,9 +66,9 @@ fun HomeScreen(
                 BKCarousel(
                     title = "Ofertas",
                     items = offers,
-                    onLikeClick = { vm.onToggleLike(it) },
-                    isLoggedIn = user != null,
-                    onRequireLogin = { /* handled by bottom bar navigation; could open login via Nav lifts later */ },
+                    onLikeClick = { viewModel.onToggleLike(it) },
+                    isLoggedIn = currentUser != null,
+                    onRequireLogin = { },
                     onProductClick = onProductClick
                 )
                 Spacer(Modifier.height(8.dp))
@@ -81,8 +81,8 @@ fun HomeScreen(
                 BKCarousel(
                     title = "Novedades",
                     items = news,
-                    onLikeClick = { vm.onToggleLike(it) },
-                    isLoggedIn = user != null,
+                    onLikeClick = { viewModel.onToggleLike(it) },
+                    isLoggedIn = currentUser != null,
                     onRequireLogin = { },
                     onProductClick = onProductClick
                 )

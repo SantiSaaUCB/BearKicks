@@ -60,24 +60,24 @@ import java.util.Locale
 
 @Composable
 fun ProfileScreen(onLoggedOut: () -> Unit, onSeeAllOrders: () -> Unit) {
-    val vm: ProfileViewModel = koinViewModel()
-    val ui by vm.state.collectAsState()
+    val viewModel: ProfileViewModel = koinViewModel()
+    val uiState by viewModel.state.collectAsState()
 
-    when (val s = ui) {
+    when (val state = uiState) {
         is ProfileUiState.Authenticated -> ProfileContent(
-            state = s,
-            onChangePhoto = { /* TODO: photo picker; for now expect URL change */ },
-            onLogout = { vm.onLogout(); onLoggedOut() },
-            onClearHistory = { vm.onClearOrders() },
+            state = state,
+            onChangePhoto = { },
+            onLogout = { viewModel.onLogout(); onLoggedOut() },
+            onClearHistory = { viewModel.onClearOrders() },
             onSeeAllOrders = onSeeAllOrders,
-            onSaveProfile = { f, l, p, a -> vm.onSaveProfile(f, l, p, a) },
-            onUpdatePhotoUrl = { url -> vm.onChangePhotoUrl(url) }
+            onSaveProfile = { firstName, lastName, phone, address -> viewModel.onSaveProfile(firstName, lastName, phone, address) },
+            onUpdatePhotoUrl = { url -> viewModel.onChangePhotoUrl(url) }
         )
         ProfileUiState.LoggedOut -> Column(Modifier.fillMaxSize().padding(24.dp), verticalArrangement = Arrangement.Center) {
             Text("No has iniciado sesión", style = MaterialTheme.typography.titleMedium)
         }
         is ProfileUiState.Error -> Column(Modifier.fillMaxSize().padding(24.dp), verticalArrangement = Arrangement.Center) {
-            Text(s.message, color = MaterialTheme.colorScheme.error)
+            Text(state.message, color = MaterialTheme.colorScheme.error)
         }
         ProfileUiState.Loading -> Column(Modifier.fillMaxSize().padding(24.dp), verticalArrangement = Arrangement.Center) {
             Text("Cargando…")
@@ -108,7 +108,6 @@ private fun ProfileContent(
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        // Header card
         ElevatedCard(
             shape = RoundedCornerShape(20.dp),
             colors = CardDefaults.elevatedCardColors(containerColor = MaterialTheme.colorScheme.primaryContainer)
@@ -142,7 +141,6 @@ private fun ProfileContent(
             }
         }
 
-        // Info card
         Card(shape = RoundedCornerShape(16.dp)) {
             Column(Modifier.fillMaxWidth().padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
                 state.user.phone?.takeIf { it.isNotBlank() }?.let {
@@ -163,7 +161,6 @@ private fun ProfileContent(
             }
         }
 
-        // Orders preview
         ElevatedCard(shape = RoundedCornerShape(16.dp)) {
             Column(Modifier.fillMaxWidth().padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -176,14 +173,14 @@ private fun ProfileContent(
                 if (orders.isEmpty()) {
                     Text("Aún no tienes compras", color = MaterialTheme.colorScheme.onSurfaceVariant)
                 } else {
-                    val fmt = rememberDateFormatter()
-                    orders.take(5).forEach { o ->
+                    val formatDate = rememberDateFormatter()
+                    orders.take(5).forEach { order ->
                         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                             Column {
-                                Text("Pedido ${o.orderId.takeLast(6).uppercase()}", style = MaterialTheme.typography.bodyLarge)
-                                Text(fmt(o.createdAt), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                                Text("Pedido ${order.orderId.takeLast(6).uppercase()}", style = MaterialTheme.typography.bodyLarge)
+                                Text(formatDate(order.createdAt), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                             }
-                            Text("Bs ${"%.2f".format(o.total)}", style = MaterialTheme.typography.bodyLarge)
+                            Text("Bs ${"%.2f".format(order.total)}", style = MaterialTheme.typography.bodyLarge)
                         }
                         Divider()
                     }
@@ -194,8 +191,6 @@ private fun ProfileContent(
                 }
             }
         }
-
-        // Logout
         OutlinedButton(onClick = onLogout, modifier = Modifier.fillMaxWidth()) {
             Icon(Icons.Filled.ExitToApp, contentDescription = null)
             Spacer(Modifier.width(8.dp))

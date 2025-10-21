@@ -58,13 +58,11 @@ import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
 val appModule = module {
-    // Firebase references
     single<DatabaseReference>(named("dbRoot")) { FirebaseDatabase.getInstance().reference }
     single<DatabaseReference>(named("shoesRef")) { get<DatabaseReference>(named("dbRoot")).child("shoes") }
     single<DatabaseReference>(named("usersRef")) { get<DatabaseReference>(named("dbRoot")).child("users") }
     single { FirebaseAuth.getInstance() }
 
-    // Auth
     single { AuthDataStore(get()) }
     single { AuthFirebaseDataSource(get(), get(named("usersRef"))) }
     single<IAuthRepository> { AuthRepository(get(), get()) }
@@ -95,7 +93,6 @@ val appModule = module {
     single { get<WishListRoomDataBase>().cartDao() }
     single { get<WishListRoomDataBase>().ordersDao() }
     single { WishListLocalDataSource(get()) }
-    // FavoritesRemoteDataSource needs root to write to /shoes and /favorites and per-user node
     single {
         val provider: () -> String = { FirebaseAuth.getInstance().currentUser?.uid ?: "guest" }
         FavoritesRemoteDataSource(get(named("dbRoot")), provider)
@@ -104,7 +101,6 @@ val appModule = module {
     factory { ObserveWishListUseCase(get()) }
     factory { ToggleWishListUseCase(get()) }
 
-    // Cart / Orders
     single<ICartRepository> { CartRepository(get(), get()) }
     factory { ObserveCartUseCase(get()) { FirebaseAuth.getInstance().currentUser?.uid ?: "guest" } }
     factory { AddToCartUseCase(get()) { FirebaseAuth.getInstance().currentUser?.uid ?: "guest" } }

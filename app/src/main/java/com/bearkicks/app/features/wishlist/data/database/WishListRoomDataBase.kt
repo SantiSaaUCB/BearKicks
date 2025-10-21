@@ -30,15 +30,12 @@ abstract class WishListRoomDataBase : RoomDatabase() {
 
 val MIGRATION_1_2 = object : Migration(1, 2) {
     override fun migrate(db: SupportSQLiteDatabase) {
-        // Add userId with default 'guest'
         db.execSQL("ALTER TABLE favorites ADD COLUMN userId TEXT NOT NULL DEFAULT 'guest'")
-        // Optional indexes could be added for (userId, id)
     }
 }
 
 val MIGRATION_2_3 = object : Migration(2, 3) {
     override fun migrate(db: SupportSQLiteDatabase) {
-        // Create cart table
         db.execSQL(
             """
             CREATE TABLE IF NOT EXISTS cart (
@@ -54,7 +51,6 @@ val MIGRATION_2_3 = object : Migration(2, 3) {
             )
             """.trimIndent()
         )
-        // Create orders table
         db.execSQL(
             """
             CREATE TABLE IF NOT EXISTS orders (
@@ -65,7 +61,6 @@ val MIGRATION_2_3 = object : Migration(2, 3) {
             )
             """.trimIndent()
         )
-        // Create order_items table
         db.execSQL(
             """
             CREATE TABLE IF NOT EXISTS order_items (

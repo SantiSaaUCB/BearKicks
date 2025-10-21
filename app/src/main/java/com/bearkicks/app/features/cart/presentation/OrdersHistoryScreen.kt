@@ -108,7 +108,6 @@ private fun OrderItemsStrip(orderId: String) {
         }
         Text("${items.sumOf { it.qty }} artículos", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
         Divider()
-        // Resumen de los dos primeros
         items.take(2).forEach { it ->
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                 Text(it.name, modifier = Modifier.weight(1f), maxLines = 1, overflow = TextOverflow.Ellipsis)

@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "cart")
 data class CartItemEntity(
-    @PrimaryKey val id: String, // composite key uid+shoeId+size
+    @PrimaryKey val id: String,
     val userId: String,
     val shoeId: String,
     val name: String,

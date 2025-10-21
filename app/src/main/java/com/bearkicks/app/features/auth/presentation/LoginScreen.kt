@@ -28,8 +28,8 @@ fun LoginScreen(
     onLoggedIn: () -> Unit,
     onGoRegister: () -> Unit
 ) {
-    val vm: LoginViewModel = koinViewModel()
-    val ui by vm.state.collectAsState()
+    val viewModel: LoginViewModel = koinViewModel()
+    val uiState by viewModel.state.collectAsState()
 
     val emailState = remember { mutableStateOf("") }
     val passState = remember { mutableStateOf("") }
@@ -60,9 +60,9 @@ fun LoginScreen(
         )
         Spacer(Modifier.height(16.dp))
 
-        when (ui) {
+        when (uiState) {
             is LoginUiState.Loading -> CircularProgressIndicator()
-            is LoginUiState.Error -> Text((ui as LoginUiState.Error).message, color = MaterialTheme.colorScheme.error)
+            is LoginUiState.Error -> Text((uiState as LoginUiState.Error).message, color = MaterialTheme.colorScheme.error)
             is LoginUiState.Success -> onLoggedIn()
             else -> {}
         }
@@ -70,7 +70,7 @@ fun LoginScreen(
         Spacer(Modifier.height(16.dp))
 
         BKButton(text = "Entrar", modifier = Modifier.fillMaxWidth()) {
-            vm.onLogin(emailState.value, passState.value)
+            viewModel.onLogin(emailState.value, passState.value)
         }
         Spacer(Modifier.height(8.dp))
         BKButton(text = "Crear cuenta", modifier = Modifier.fillMaxWidth()) { onGoRegister() }

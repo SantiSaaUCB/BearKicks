@@ -26,9 +26,9 @@ import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun CartScreen(onCheckoutSuccess: (String) -> Unit) {
-    val vm: CartViewModel = koinViewModel()
-    val items = vm.items.collectAsState().value
-    val total = vm.total.collectAsState().value
+    val viewModel: CartViewModel = koinViewModel()
+    val items = viewModel.items.collectAsState().value
+    val total = viewModel.total.collectAsState().value
 
     Column(Modifier.fillMaxSize().padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
         items.forEach { item ->
@@ -56,7 +56,7 @@ fun CartScreen(onCheckoutSuccess: (String) -> Unit) {
             Text("Total", style = MaterialTheme.typography.titleMedium)
             Text("Bs ${"%.2f".format(total)}", style = MaterialTheme.typography.titleMedium)
         }
-        Button(onClick = { vm.onCheckout(onCheckoutSuccess) }, enabled = items.isNotEmpty(), modifier = Modifier.fillMaxWidth()) {
+        Button(onClick = { viewModel.onCheckout(onCheckoutSuccess) }, enabled = items.isNotEmpty(), modifier = Modifier.fillMaxWidth()) {
             Text("Comprar ahora")
         }
     }

@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "order_items")
 data class OrderItemEntity(
-    @PrimaryKey val id: String, // composite orderId+shoeId+size
+    @PrimaryKey val id: String,
     val orderId: String,
     val shoeId: String,
     val name: String,

@@ -32,41 +32,39 @@ fun AppNavigation() {
     val observeAuth: ObserveAuthStateUseCase = koinInject()
     val user by observeAuth().collectAsState(initial = null)
 
-    // If not authenticated, show a dedicated auth graph only (login/register)
     if (user == null) {
-        val nav = rememberNavController()
-        NavHost(navController = nav, startDestination = Screen.Login.route) {
+        val navController = rememberNavController()
+        NavHost(navController = navController, startDestination = Screen.Login.route) {
             composable(Screen.Login.route) {
                 LoginScreen(
-                    onLoggedIn = { /* Auth state updates -> recomposes to main graph */ },
-                    onGoRegister = { nav.navigate(Screen.Register.route) }
+                    onLoggedIn = { },
+                    onGoRegister = { navController.navigate(Screen.Register.route) }
                 )
             }
             composable(Screen.Register.route) {
                 RegisterScreen(
-                    onRegistered = { /* Auth state updates -> recomposes to main graph */ },
-                    onBackToLogin = { nav.popBackStack() }
+                    onRegistered = { },
+                    onBackToLogin = { navController.popBackStack() }
                 )
             }
         }
         return
     }
 
-    // Authenticated graph with full app UI (top/bottom bars + screens)
-    val nav = rememberNavController()
-    val backStack by nav.currentBackStackEntryAsState()
-    val current = backStack?.destination?.route ?: Screen.Home.route
+    val navController = rememberNavController()
+    val backStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = backStackEntry?.destination?.route ?: Screen.Home.route
 
     val bottomRoutes = setOf(
         Screen.Shop.route, Screen.Wishlist.route, Screen.Home.route,
         Screen.Cart.route, Screen.Profile.route
     )
-    val showBars = current in bottomRoutes
+    val showBars = currentRoute in bottomRoutes
 
     Scaffold(
         topBar = {
             if (showBars) {
-                val title = when (current) {
+                val title = when (currentRoute) {
                     Screen.Shop.route -> Screen.Shop.title
                     Screen.Wishlist.route -> Screen.Wishlist.title
                     Screen.Home.route -> Screen.Home.title
@@ -80,11 +78,11 @@ fun AppNavigation() {
         bottomBar = {
             if (showBars) {
                 BKBottomBar(
-                    currentRoute = current,
+                    currentRoute = currentRoute,
                     onItemSelected = { item ->
-                        val r = item.route
-                        if (r != current) {
-                            nav.navigate(r) {
+                        val route = item.route
+                        if (route != currentRoute) {
+                            navController.navigate(route) {
                                 launchSingleTop = true
                                 restoreState = true
                             }
@@ -93,52 +91,52 @@ fun AppNavigation() {
                 )
             }
         }
-    ) { inner ->
+    ) { innerPadding ->
         NavHost(
-            navController = nav,
+            navController = navController,
             startDestination = Screen.Home.route,
-            modifier = Modifier.padding(inner)
+            modifier = Modifier.padding(innerPadding)
         ) {
             composable(Screen.Home.route) { HomeScreen() }
             composable(Screen.Shop.route) {
                 ShopScreen(
                     onProductClick = { shoe ->
-                        nav.navigate("${Screen.ShoeDetail.route}/${shoe.id}")
+                        navController.navigate("${Screen.ShoeDetail.route}/${shoe.id}")
                     }
                 )
             }
-            composable("${Screen.ShoeDetail.route}/{shoeId}") { back ->
-                val id = back.arguments?.getString("shoeId") ?: return@composable
+            composable("${Screen.ShoeDetail.route}/{shoeId}") { backStackEntry ->
+                val shoeId = backStackEntry.arguments?.getString("shoeId") ?: return@composable
                 ShoeDetailScreen(
-                    shoeId = id,
-                    onBack = { nav.popBackStack() },
+                    shoeId = shoeId,
+                    onBack = { navController.popBackStack() },
                     onAddToCartNavigate = {
-                        nav.popBackStack()
-                        nav.navigate(Screen.Cart.route)
+                        navController.popBackStack()
+                        navController.navigate(Screen.Cart.route)
                     },
                     isLoggedIn = true,
-                    onRequireLogin = { /* already logged */ }
+                    onRequireLogin = { }
                 )
             }
             composable(Screen.Wishlist.route) {
                 WishListScreen(
                     onProductClick = { shoe ->
-                        nav.navigate("${Screen.ShoeDetail.route}/${shoe.id}")
+                        navController.navigate("${Screen.ShoeDetail.route}/${shoe.id}")
                     }
                 )
             }
             composable(Screen.Cart.route) {
                 CartScreen { _ ->
-                    nav.navigate(Screen.Profile.route)
+                    navController.navigate(Screen.Profile.route)
                 }
             }
             composable(Screen.Profile.route) {
                 ProfileScreen(
-                    onLoggedOut = { /* When logout occurs, auth state will switch to auth graph */ },
-                    onSeeAllOrders = { nav.navigate(Screen.Orders.route) }
+                    onLoggedOut = { },
+                    onSeeAllOrders = { navController.navigate(Screen.Orders.route) }
                 )
             }
-            composable(Screen.Orders.route) { OrdersHistoryScreen(onBack = { nav.popBackStack() }) }
+            composable(Screen.Orders.route) { OrdersHistoryScreen(onBack = { navController.popBackStack() }) }
         }
     }
 }

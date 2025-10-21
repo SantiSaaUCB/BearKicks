@@ -22,29 +22,29 @@ data class ShopUiState(
 )
 
 class ShopViewModel(
-    private val getAll: GetAllShoesUseCase,
-    private val toggleFavorite: ToggleWishListUseCase,
-    private val wishRepo: IWishListRepository
+    private val getAllShoesUseCase: GetAllShoesUseCase,
+    private val toggleWishListUseCase: ToggleWishListUseCase,
+    private val wishListRepository: IWishListRepository
 ) : ViewModel() {
 
     private val _query = MutableStateFlow("")
     val state: StateFlow<ShopUiState> =
         combine(
             _query,
-            combine(getAll(), wishRepo.observeFavoriteIds()) { list, favIds ->
-                list.map { it.copy(isLiked = it.id in favIds) }
+            combine(getAllShoesUseCase(), wishListRepository.observeFavoriteIds()) { shoes, favoriteIds ->
+                shoes.map { it.copy(isLiked = it.id in favoriteIds) }
             }
-        ) { q, list ->
-            val filtered = if (q.isBlank()) list else list.filter {
-                it.name.contains(q, true) || (it.brand?.contains(q, true) == true)
+        ) { query, items ->
+            val filtered = if (query.isBlank()) items else items.filter {
+                it.name.contains(query, true) || (it.brand?.contains(query, true) == true)
             }
-            ShopUiState(query = q, items = list, filtered = filtered)
+            ShopUiState(query = query, items = items, filtered = filtered)
         }.stateIn(viewModelScope, SharingStarted.Eagerly, ShopUiState())
 
-    fun onQueryChange(q: String) { _query.value = q }
+    fun onQueryChange(query: String) { _query.value = query }
 
     fun onToggleLike(item: ShoeModel) {
         if (FirebaseAuth.getInstance().currentUser == null) return
-        viewModelScope.launch(Dispatchers.IO) { toggleFavorite(item) }
+        viewModelScope.launch(Dispatchers.IO) { toggleWishListUseCase(item) }
     }
 }

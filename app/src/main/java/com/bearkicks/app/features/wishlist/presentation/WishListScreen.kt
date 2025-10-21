@@ -26,12 +26,12 @@ import androidx.compose.runtime.getValue
 fun WishListScreen(
     onProductClick: (ShoeModel) -> Unit = {}
 ) {
-    val vm: WishListViewModel = koinViewModel()
-    val list = vm.favorites.collectAsState(initial = emptyList()).value
+    val viewModel: WishListViewModel = koinViewModel()
+    val favorites = viewModel.favorites.collectAsState(initial = emptyList()).value
     val observeAuth: ObserveAuthStateUseCase = koinInject()
-    val user by observeAuth().collectAsState(initial = null)
+    val currentUser by observeAuth().collectAsState(initial = null)
 
-    if (list.isEmpty()) {
+    if (favorites.isEmpty()) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
@@ -52,12 +52,12 @@ fun WishListScreen(
         contentPadding = PaddingValues(horizontal = 12.dp, vertical = 8.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        items(list, key = { it.id }) { shoe ->
+        items(favorites, key = { it.id }) { shoe ->
             BKProductCard(
                 shoe = shoe.copy(isLiked = true),
                 onClick = onProductClick,
-                onLikeClick = { vm.onToggle(it) },
-                isLoggedIn = user != null
+                onLikeClick = { viewModel.onToggle(it) },
+                isLoggedIn = currentUser != null
             )
         }
     }

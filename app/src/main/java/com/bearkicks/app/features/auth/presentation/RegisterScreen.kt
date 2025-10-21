@@ -28,8 +28,8 @@ fun RegisterScreen(
     onRegistered: () -> Unit,
     onBackToLogin: () -> Unit
 ) {
-    val vm: RegisterViewModel = koinViewModel()
-    val ui by vm.state.collectAsState()
+    val viewModel: RegisterViewModel = koinViewModel()
+    val uiState by viewModel.state.collectAsState()
 
     val firstName = remember { mutableStateOf("") }
     val lastName = remember { mutableStateOf("") }
@@ -59,15 +59,15 @@ fun RegisterScreen(
         BKTextField(value = password.value, onValueChange = { password.value = it }, label = "Contraseña", isPassword = true, size = BKTextFieldSize.Medium, modifier = Modifier.fillMaxWidth())
 
         Spacer(Modifier.height(16.dp))
-        when (ui) {
+        when (uiState) {
             is RegisterUiState.Loading -> CircularProgressIndicator()
-            is RegisterUiState.Error -> Text((ui as RegisterUiState.Error).message, color = MaterialTheme.colorScheme.error)
+            is RegisterUiState.Error -> Text((uiState as RegisterUiState.Error).message, color = MaterialTheme.colorScheme.error)
             is RegisterUiState.Success -> onRegistered()
             else -> {}
         }
         Spacer(Modifier.height(16.dp))
         BKButton(text = "Registrar", modifier = Modifier.fillMaxWidth()) {
-            vm.onRegister(
+            viewModel.onRegister(
                 firstName.value,
                 lastName.value,
                 email.value,
